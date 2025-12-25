@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Pencil Icon</title>
+</head>
+<body>
+    <canvas id="canvas" width="1024" height="1024"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Белый фон
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, 1024, 1024);
+
+        // Корпус карандаша (желтый/оранжевый)
+        ctx.fillStyle = '#FFA500';
+        ctx.beginPath();
+        ctx.moveTo(200, 400);
+        ctx.lineTo(800, 400);
+        ctx.lineTo(750, 600);
+        ctx.lineTo(250, 600);
+        ctx.closePath();
+        ctx.fill();
+
+        // Наконечник (серый)
+        ctx.fillStyle = '#808080';
+        ctx.beginPath();
+        ctx.moveTo(750, 400);
+        ctx.lineTo(900, 300);
+        ctx.lineTo(900, 700);
+        ctx.lineTo(750, 600);
+        ctx.closePath();
+        ctx.fill();
+
+        // Ластик (розовый)
+        ctx.fillStyle = '#FF69B4';
+        ctx.fillRect(200, 400, 50, 200);
+
+        // Металлическое кольцо
+        ctx.fillStyle = '#C0C0C0';
+        ctx.fillRect(240, 420, 20, 160);
+
+        // Контур
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+        // Сохранить как PNG
+        const link = document.createElement('a');
+        link.download = 'app_icon.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    </script>
+</body>
+</html>
+
